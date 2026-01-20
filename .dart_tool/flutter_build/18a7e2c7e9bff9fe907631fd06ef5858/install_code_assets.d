@@ -1,0 +1,1 @@
+ C:\\Users\\kleen\\OneDrive\\Desktop\\Uni\\sexto\\moviles\\p3\\tallermoviles-p3\\.dart_tool\\flutter_build\\18a7e2c7e9bff9fe907631fd06ef5858\\native_assets.json: 
