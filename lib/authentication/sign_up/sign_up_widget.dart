@@ -357,10 +357,11 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                     ),
                                   ),
                                   suffixIcon: InkWell(
-                                    onTap: () => safeSetState(
-                                      () => _model.signUpPasswordVisibility =
-                                          !_model.signUpPasswordVisibility,
-                                    ),
+                                    onTap: () async {
+                                      safeSetState(() =>
+                                          _model.signUpPasswordVisibility =
+                                              !_model.signUpPasswordVisibility);
+                                    },
                                     focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
                                       _model.signUpPasswordVisibility
@@ -497,11 +498,12 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                   ),
                                 ),
                                 suffixIcon: InkWell(
-                                  onTap: () => safeSetState(
-                                    () => _model
+                                  onTap: () async {
+                                    safeSetState(() => _model
                                             .signUpPasswordConfirmVisibility =
-                                        !_model.signUpPasswordConfirmVisibility,
-                                  ),
+                                        !_model
+                                            .signUpPasswordConfirmVisibility);
+                                  },
                                   focusNode: FocusNode(skipTraversal: true),
                                   child: Icon(
                                     _model.signUpPasswordConfirmVisibility
