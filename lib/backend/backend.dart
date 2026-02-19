@@ -11,6 +11,7 @@ import 'schema/track_record.dart';
 import 'schema/chat_message_record.dart';
 import 'schema/favorite_record.dart';
 import 'schema/settings_record.dart';
+import 'logger_service.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -70,7 +71,7 @@ Future<int> queryCollectionCount(
   }
 
   return query.count().get().catchError((err) {
-    print('Error querying $collection: $err');
+    LoggerService.error('querying $collection', err);
   }).then((value) => value.count!);
 }
 
@@ -87,7 +88,7 @@ Stream<List<T>> queryCollection<T>(
     query = query.limit(singleRecord ? 1 : limit);
   }
   return query.snapshots().handleError((err) {
-    print('Error querying $collection: $err');
+    LoggerService.error('querying $collection', err);
   }).map((s) => s.docs
       .map(
         (d) => safeGet(

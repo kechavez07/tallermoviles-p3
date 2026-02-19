@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class NotificationService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -46,7 +47,7 @@ class NotificationService {
           .doc(notificationId)
           .update({'read': true, 'read_at': FieldValue.serverTimestamp()});
     } catch (e) {
-      print('Error marking notification as read: $e');
+      LoggerService.error('marking notification as read', e);
       rethrow;
     }
   }
@@ -68,7 +69,7 @@ class NotificationService {
             .update({'read': true, 'read_at': FieldValue.serverTimestamp()});
       }
     } catch (e) {
-      print('Error marking all notifications as read: $e');
+      LoggerService.error('marking all notifications as read', e);
       rethrow;
     }
   }
@@ -78,7 +79,7 @@ class NotificationService {
     try {
       await _firestore.collection('notifications').doc(notificationId).delete();
     } catch (e) {
-      print('Error deleting notification: $e');
+      LoggerService.error('deleting notification', e);
       rethrow;
     }
   }
@@ -98,7 +99,7 @@ class NotificationService {
         await doc.reference.delete();
       }
     } catch (e) {
-      print('Error deleting all notifications: $e');
+      LoggerService.error('deleting all notifications', e);
       rethrow;
     }
   }

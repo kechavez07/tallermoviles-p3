@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class FavoriteService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -97,7 +98,7 @@ class FavoriteService {
         ),
       );
     } catch (e) {
-      print('Error adding to favorites: $e');
+      LoggerService.error('adding to favorites', e);
       rethrow;
     }
   }
@@ -118,7 +119,7 @@ class FavoriteService {
         await doc.reference.delete();
       }
     } catch (e) {
-      print('Error removing from favorites: $e');
+      LoggerService.error('removing from favorites', e);
       rethrow;
     }
   }
@@ -150,7 +151,7 @@ class FavoriteService {
         'rating': rating,
       });
     } catch (e) {
-      print('Error rating track: $e');
+      LoggerService.error('rating track', e);
       rethrow;
     }
   }
@@ -178,7 +179,7 @@ class FavoriteService {
         'notes': notes,
       });
     } catch (e) {
-      print('Error adding notes: $e');
+      LoggerService.error('adding notes', e);
       rethrow;
     }
   }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class ProjectService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -156,7 +157,7 @@ class ProjectService {
       final doc = await docRef.get();
       return ProjectRecord.fromSnapshot(doc);
     } catch (e) {
-      print('Error creating project: $e');
+      LoggerService.error('creating project', e);
       rethrow;
     }
   }
@@ -180,7 +181,7 @@ class ProjectService {
         'updated_at': FieldValue.serverTimestamp(),
       });
     } catch (e) {
-      print('Error updating project: $e');
+      LoggerService.error('updating project', e);
       rethrow;
     }
   }
@@ -210,7 +211,7 @@ class ProjectService {
         });
       }
     } catch (e) {
-      print('Error adding collaborator: $e');
+      LoggerService.error('adding collaborator', e);
       rethrow;
     }
   }
@@ -235,7 +236,7 @@ class ProjectService {
         'updated_at': FieldValue.serverTimestamp(),
       });
     } catch (e) {
-      print('Error removing collaborator: $e');
+      LoggerService.error('removing collaborator', e);
       rethrow;
     }
   }
@@ -254,7 +255,7 @@ class ProjectService {
 
       await _firestore.collection('projects').doc(projectId).delete();
     } catch (e) {
-      print('Error deleting project: $e');
+      LoggerService.error('deleting project', e);
       rethrow;
     }
   }

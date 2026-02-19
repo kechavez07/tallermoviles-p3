@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class SettingsService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -62,7 +63,7 @@ class SettingsService {
       final doc = await docRef.get();
       return SettingsRecord.fromSnapshot(doc);
     } catch (e) {
-      print('Error getting or creating settings: $e');
+      LoggerService.error('getting or creating settings', e);
       rethrow;
     }
   }
@@ -116,7 +117,7 @@ class SettingsService {
 
       await querySnapshot.docs.first.reference.update(updateData);
     } catch (e) {
-      print('Error updating settings: $e');
+      LoggerService.error('updating settings', e);
       rethrow;
     }
   }
@@ -206,9 +207,9 @@ class SettingsService {
         language: 'en',
       );
 
-      print('Settings reset to defaults');
+      LoggerService.info('Settings reset to defaults');
     } catch (e) {
-      print('Error resetting settings: $e');
+      LoggerService.error('resetting settings', e);
       rethrow;
     }
   }

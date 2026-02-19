@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class TrackService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -81,7 +82,7 @@ class TrackService {
       final doc = await docRef.get();
       return TrackRecord.fromSnapshot(doc);
     } catch (e) {
-      print('Error creating track: $e');
+      LoggerService.error('creating track', e);
       rethrow;
     }
   }
@@ -116,7 +117,7 @@ class TrackService {
 
       await _firestore.collection('tracks').doc(trackId).update(updateData);
     } catch (e) {
-      print('Error updating track: $e');
+      LoggerService.error('updating track', e);
       rethrow;
     }
   }
@@ -126,7 +127,7 @@ class TrackService {
     try {
       await _firestore.collection('tracks').doc(trackId).delete();
     } catch (e) {
-      print('Error deleting track: $e');
+      LoggerService.error('deleting track', e);
       rethrow;
     }
   }
@@ -164,7 +165,7 @@ class TrackService {
           .map((doc) => TrackRecord.fromSnapshot(doc))
           .toList();
     }).handleError((error) {
-      print('Error searching tracks: $error');
+      LoggerService.error('searching tracks', error);
       // Fallback to client-side search if index doesn't exist
       return getProjectTracksStream(projectId)
           .map((tracks) => tracks
@@ -182,7 +183,7 @@ class TrackService {
       if (!doc.exists) return null;
       return TrackRecord.fromSnapshot(doc);
     } catch (e) {
-      print('Error getting track: $e');
+      LoggerService.error('getting track', e);
       return null;
     }
   }

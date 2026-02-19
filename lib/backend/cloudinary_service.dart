@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:convert';
+import 'logger_service.dart';
 
 class CloudinaryService {
   static final CloudinaryService _instance = CloudinaryService._internal();
@@ -115,7 +116,7 @@ class CloudinaryService {
 
       return response.statusCode == 200;
     } catch (e) {
-      print('Download error: $e');
+      LoggerService.info('Download error: e');
       return false;
     }
   }
@@ -155,7 +156,7 @@ class CloudinaryService {
       }
       return [];
     } catch (e) {
-      print('Error fetching audio files: $e');
+      LoggerService.error('fetching audio files', e);
       return [];
     }
   }
@@ -174,7 +175,7 @@ class CloudinaryService {
 
       return response.statusCode == 200;
     } catch (e) {
-      print('Delete error: $e');
+      LoggerService.info('Delete error: e');
       return false;
     }
   }
@@ -202,7 +203,7 @@ class CloudinaryService {
         'updatedAt': FieldValue.serverTimestamp(),
       });
     } catch (e) {
-      print('Error saving audio metadata: $e');
+      LoggerService.error('saving audio metadata', e);
     }
   }
 

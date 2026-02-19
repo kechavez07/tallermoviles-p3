@@ -1,5 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_service/audio_service.dart';
+import 'logger_service.dart';
 
 class AudioTrack {
   final String id;
@@ -25,7 +26,7 @@ class AudioTrack {
       audioPlayer.setVolume(volume);
       audioPlayer.setSpeed(1.0);
     } catch (e) {
-      print('Error initializing audio track: $e');
+      LoggerService.error('initializing audio track', e);
     }
   }
 
@@ -93,7 +94,7 @@ class AudioMixerService {
       await track.initialize();
       _tracks[trackId] = track;
     } catch (e) {
-      print('Error adding track: $e');
+      LoggerService.error('adding track', e);
       rethrow;
     }
   }
@@ -174,7 +175,7 @@ class AudioMixerService {
         await track.audioPlayer.play();
         track.isPlaying = true;
       } catch (e) {
-        print('Error playing track ${track.id}: $e');
+        LoggerService.error('playing track ${track.id}', e);
       }
     }
     _notifyListeners();
@@ -189,7 +190,7 @@ class AudioMixerService {
         await track.audioPlayer.pause();
         track.isPlaying = false;
       } catch (e) {
-        print('Error pausing track ${track.id}: $e');
+        LoggerService.error('pausing track ${track.id}', e);
       }
     }
     _notifyListeners();
@@ -202,7 +203,7 @@ class AudioMixerService {
         await track.audioPlayer.stop();
         track.isPlaying = false;
       } catch (e) {
-        print('Error stopping track ${track.id}: $e');
+        LoggerService.error('stopping track ${track.id}', e);
       }
     }
     _currentPlaybackPosition = Duration.zero;
@@ -215,7 +216,7 @@ class AudioMixerService {
       try {
         await track.audioPlayer.seek(position);
       } catch (e) {
-        print('Error seeking track ${track.id}: $e');
+        LoggerService.error('seeking track ${track.id}', e);
       }
     }
   }

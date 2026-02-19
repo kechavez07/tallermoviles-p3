@@ -1,4 +1,5 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'logger_service.dart';
 
 class EnvironmentConfig {
   static late String cloudinaryCloudName;
@@ -22,7 +23,7 @@ class EnvironmentConfig {
       enableOfflineMode =
           dotenv.get('ENABLE_OFFLINE_MODE', fallback: 'true') == 'true';
     } catch (e) {
-      print('Error loading environment config: $e');
+      LoggerService.error('loading environment config', e);
       // Use defaults if .env file is not found
       cloudinaryCloudName = 'dsfazlofc';
       cloudinaryApiKey = '375549546746736';

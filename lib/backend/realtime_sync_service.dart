@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rxdart/rxdart.dart';
 import 'dart:async';
+import 'logger_service.dart';
 
 class RealtimeSyncService {
   static final RealtimeSyncService _instance = RealtimeSyncService._internal();
@@ -40,7 +41,7 @@ class RealtimeSyncService {
         }
       },
       onError: (error) {
-        print('Error watching project: $error');
+        LoggerService.error('Error watching project', error);
         _syncStatus.add(false);
       },
     );
@@ -358,7 +359,7 @@ class RealtimeSyncService {
 
       _syncStatus.add(true);
     } catch (e) {
-      print('Error processing pending changes: $e');
+      LoggerService.error('Error processing pending changes', e);
       _syncStatus.add(false);
       rethrow;
     }
@@ -367,10 +368,19 @@ class RealtimeSyncService {
   // ===================== CLEANUP =====================
 
   Future<void> dispose() async {
-    await _projectListener?.cancel();
-    await _collaboratorListener?.cancel();
-    await _projectUpdates.close();
-    await _collaborators.close();
-    await _syncStatus.close();
+    try {
+      // Cancelar listeners Firestore
+      await _projectListener?.cancel();
+      await _collaboratorListener?.cancel();
+      
+      // Cerrar BehaviorSubjects
+      if (!_projectUpdates.isClosed) await _projectUpdates.close();
+      if (!_collaborators.isClosed) await _collaborators.close();
+      if (!_syncStatus.isClosed) await _syncStatus.close();
+      
+      LoggerService.success('RealtimeSyncService disposed successfully');
+    } catch (e) {
+      LoggerService.error('Error disposing RealtimeSyncService', e);
+    }
   }
 }

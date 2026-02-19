@@ -5,6 +5,7 @@ import 'local_storage_service.dart';
 import 'audio/audio_mixer_service.dart';
 import 'realtime_sync_service.dart';
 import 'environment_config.dart';
+import 'logger_service.dart';
 
 class MusicalStudioService {
   static final MusicalStudioService _instance =
@@ -32,8 +33,8 @@ class MusicalStudioService {
     _audioMixerService = AudioMixerService();
     _realtimeSyncService = RealtimeSyncService();
 
-    print('✓ Musical Studio Service Initialized');
-    print('✓ Cloudinary Cloud: ${EnvironmentConfig.cloudinaryCloudName}');
+    LoggerService.success('Musical Studio Service Initialized');
+    LoggerService.info('Cloudinary Cloud: ${EnvironmentConfig.cloudinaryCloudName}');
   }
 
   // ===================== GETTERS FOR SUB-SERVICES =====================

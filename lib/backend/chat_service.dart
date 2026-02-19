@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_flow/flutter_flow_util.dart';
 
 import '../../backend/backend.dart';
+import 'logger_service.dart';
 
 class ChatService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -61,7 +62,7 @@ class ChatService {
       final doc = await docRef.get();
       return ChatMessageRecord.fromSnapshot(doc);
     } catch (e) {
-      print('Error sending message: $e');
+      LoggerService.error('sending message', e);
       rethrow;
     }
   }
@@ -83,7 +84,7 @@ class ChatService {
         await messageRef.update({'read_by': currentReadBy});
       }
     } catch (e) {
-      print('Error marking message as read: $e');
+      LoggerService.error('marking message as read', e);
     }
   }
 
@@ -102,7 +103,7 @@ class ChatService {
         'is_edited': true,
       });
     } catch (e) {
-      print('Error editing message: $e');
+      LoggerService.error('editing message', e);
       rethrow;
     }
   }
@@ -112,7 +113,7 @@ class ChatService {
     try {
       await _firestore.collection('messages').doc(messageId).delete();
     } catch (e) {
-      print('Error deleting message: $e');
+      LoggerService.error('deleting message', e);
       rethrow;
     }
   }
@@ -208,7 +209,7 @@ class ChatService {
         await presenceRef.delete();
       }
     } catch (e) {
-      print('Error setting user presence: $e');
+      LoggerService.error('setting user presence', e);
     }
   }
 
