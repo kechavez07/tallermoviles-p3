@@ -1,0 +1,13 @@
+
+# Environment variables (NEVER COMMIT)
+.env
+.env.local
+.env.*.local
+
+# Backend credentials
+lib/backend/.env*
+
+# Sensitive files
+*.pem
+*.key
+*.secret
