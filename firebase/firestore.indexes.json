@@ -1,3 +1,181 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "projects",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "owner_uid",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "projects",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "collaborators",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "projects",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "is_public",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "tracks",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "tracks",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "genre",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "tracks",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "created_by",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "sender_uid",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "user_uid",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "created_at",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "user_uid",
+          "order": "Ascending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "favorites",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "project_id",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "rating",
+          "order": "Descending"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "settings",
+      "queryScope": "Collection",
+      "fields": [
+        {
+          "fieldPath": "user_uid",
+          "order": "Ascending"
+        },
+        {
+          "fieldPath": "updated_at",
+          "order": "Descending"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
 }
