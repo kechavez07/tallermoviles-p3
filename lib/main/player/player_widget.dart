@@ -202,7 +202,7 @@ class _PlayerWidgetState extends State<PlayerWidget> {
                                     child: SliderTheme(
                                       data: SliderThemeData(
                                         showValueIndicator:
-                                            ShowValueIndicator.always,
+                                            ShowValueIndicator.onDrag,
                                       ),
                                       child: Container(
                                         width: 357.0,

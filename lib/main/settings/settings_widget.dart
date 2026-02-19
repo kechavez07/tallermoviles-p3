@@ -1119,7 +1119,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         child: SliderTheme(
                                           data: SliderThemeData(
                                             showValueIndicator:
-                                                ShowValueIndicator.always,
+                                                ShowValueIndicator.onDrag,
                                           ),
                                           child: Container(
                                             width: 358.0,
