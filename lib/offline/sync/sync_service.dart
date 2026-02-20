@@ -6,7 +6,6 @@ import 'package:estudio_musica_taller/offline/models/pending_sync_item.dart';
 import 'package:estudio_musica_taller/offline/models/sync_status.dart';
 import 'package:estudio_musica_taller/offline/models/local_project.dart';
 import 'package:estudio_musica_taller/offline/models/local_track.dart';
-import 'package:estudio_musica_taller/offline/sync/conflict_resolver.dart';
 
 /// Callback para actualizaciones de progreso de sincronización
 typedef SyncProgressCallback = Function(int processed, int total);
@@ -208,7 +207,7 @@ class SyncService extends ChangeNotifier {
               .collection(item.entityType + 's') // 'projects' o 'tracks'
               .doc(item.entityId)
               .set({
-                ...item.data as Map<String, dynamic>,
+                ...item.data,
                 'createdAt': FieldValue.serverTimestamp(),
                 'updatedAt': FieldValue.serverTimestamp(),
               });
@@ -220,7 +219,7 @@ class SyncService extends ChangeNotifier {
               .collection(item.entityType + 's')
               .doc(item.entityId)
               .update({
-                ...item.data as Map<String, dynamic>,
+                ...item.data,
                 'updatedAt': FieldValue.serverTimestamp(),
               });
           break;

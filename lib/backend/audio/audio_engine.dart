@@ -29,8 +29,6 @@ class AudioEngine {
       : projectStateSubject = BehaviorSubject<MusicProject>.seeded(
           MusicProject(
             name: 'Nuevo Proyecto',
-            color: '#FF6B6B',
-            instrumentType: 'Mixer',
           ),
         ),
         isPlayingSubject = BehaviorSubject<bool>.seeded(false),
@@ -193,7 +191,7 @@ class AudioEngine {
     // Usar el primer track como master track para sincronización
     final masterTrack = _trackPlayers.values.first;
     
-    return masterTrack.positionSubject.stream.handleData((masterPos) {
+    return masterTrack.positionSubject.stream.tap((masterPos) {
       // Re-sincronizar el resto de tracks al master si hay desfase > 100ms
       for (final player in _trackPlayers.values) {
         final diff = (player.positionSubject.value - masterPos)

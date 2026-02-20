@@ -13,11 +13,6 @@ class AudioServiceHandler extends BaseAudioHandler with SeekHandler {
   /// Stream de posición
   final _positionSubject = BehaviorSubject<Duration>.seeded(Duration.zero);
 
-  /// Stream de modo de reproducción
-  final _playbackModeSubject = BehaviorSubject<AudioServicePlaybackMode>.seeded(
-    AudioServicePlaybackMode.none,
-  );
-
   /// Constructor
   AudioServiceHandler() {
     _initializeAudio();
@@ -25,8 +20,12 @@ class AudioServiceHandler extends BaseAudioHandler with SeekHandler {
 
   /// Inicializa los listeners de audio
   void _initializeAudio() {
-    _audioPlayer.durationStream.pipe(_durationSubject);
-    _audioPlayer.positionStream.pipe(_positionSubject);
+    _audioPlayer.durationStream.listen((duration) {
+      if (duration != null) _durationSubject.add(duration);
+    });
+    _audioPlayer.positionStream.listen((position) {
+      _positionSubject.add(position);
+    });
 
     // Actualiza el estado de reproducción
     _audioPlayer.playerStateStream.listen((playerState) {
@@ -130,8 +129,9 @@ class AudioServiceHandler extends BaseAudioHandler with SeekHandler {
   }
 
   /// Establece la velocidad
+  @override
   Future<void> setSpeed(double speed) async {
-    await _audioPlayer.setPlaybackRate(speed);
+    await _audioPlayer.setSpeed(speed);
   }
 
   /// Limpieza
@@ -139,16 +139,17 @@ class AudioServiceHandler extends BaseAudioHandler with SeekHandler {
     await _audioPlayer.dispose();
     await _durationSubject.close();
     await _positionSubject.close();
-    await _playbackModeSubject.close();
   }
 }
 
 /// Inicializa audio_service
 Future<AudioHandler> initAudioService() async {
   return await AudioService.init(
-    handler: AudioServiceHandler(),
-    androidNotificationChannelId: 'com.ryanheise.audio_service.channel.audio',
-    androidNotificationChannelName: 'Audio playback',
-    androidNotificationOngoing: true,
+    builder: () => AudioServiceHandler(),
+    config: const AudioServiceConfig(
+      androidNotificationChannelId: 'com.ryanheise.audio_service.channel.audio',
+      androidNotificationChannelName: 'Audio playback',
+      androidNotificationOngoing: true,
+    ),
   );
 }

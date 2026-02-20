@@ -294,7 +294,7 @@ class _ProjectCardState extends State<_ProjectCard> {
       margin: const EdgeInsets.only(bottom: 12),
       child: ListTile(
         leading: Icon(
-          Icons.folder_music,
+          Icons.library_music,
           color: _getStatusColor(widget.project.syncStatus),
         ),
         title: Text(widget.project.name),

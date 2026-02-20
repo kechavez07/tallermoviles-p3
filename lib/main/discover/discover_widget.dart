@@ -468,7 +468,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children:
                                   List.generate(images.length, (imagesIndex) {
-                                final imagesItem = images[imagesIndex];
                                 return Container(
                                   width: 119.0,
                                   height: 167.0,
@@ -579,7 +578,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children:
                                 List.generate(image2.length, (image2Index) {
-                              final image2Item = image2[image2Index];
                               return Container(
                                 width: 119.0,
                                 height: 167.0,
@@ -719,7 +717,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children:
                                 List.generate(image3.length, (image3Index) {
-                              final image3Item = image3[image3Index];
                               return Container(
                                 width: 152.0,
                                 height: 211.0,
@@ -905,8 +902,6 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: List.generate(dailyMotivation.length,
                                   (dailyMotivationIndex) {
-                                final dailyMotivationItem =
-                                    dailyMotivation[dailyMotivationIndex];
                                 return Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 16.0, 0.0),

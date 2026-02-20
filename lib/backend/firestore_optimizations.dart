@@ -11,7 +11,7 @@ extension OptimizedFirestoreQueries on Query<Map<String, dynamic>> {
     required int pageSize,
     DocumentSnapshot? nextPageMarker,
   }) async {
-    Query query = nextPageMarker != null 
+    Query<Map<String, dynamic>> query = nextPageMarker != null 
         ? this.startAfterDocument(nextPageMarker) 
         : this;
     
@@ -154,22 +154,23 @@ class FirestoreBatchOptimizer {
   }
 }
 
+/// Resultado de cache
+class CachedResult {
+  final List<Map<String, dynamic>> data;
+  final DateTime timestamp;
+
+  CachedResult({required this.data, required this.timestamp});
+
+  bool isExpired(Duration cacheExpiration) => 
+      DateTime.now().difference(timestamp) > cacheExpiration;
+}
+
 /// Cache local de resultados Firestore
 /// Reduce reads y mejora UX offline
 class FirestoreCacheLayer {
   static const Duration cacheExpiration = Duration(minutes: 5);
   
   final Map<String, CachedResult> _cache = {};
-
-  class CachedResult {
-    final List<Map<String, dynamic>> data;
-    final DateTime timestamp;
-
-    CachedResult({required this.data, required this.timestamp});
-
-    bool get isExpired => 
-        DateTime.now().difference(timestamp) > cacheExpiration;
-  }
 
   /// Obtener con cache automático
   Future<List<Map<String, dynamic>>> getWithCache({
@@ -178,7 +179,7 @@ class FirestoreCacheLayer {
   }) async {
     final cached = _cache[key];
     
-    if (cached != null && !cached.isExpired) {
+    if (cached != null && !cached.isExpired(cacheExpiration)) {
       return cached.data;
     }
 

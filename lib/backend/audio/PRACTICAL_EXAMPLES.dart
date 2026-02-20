@@ -5,8 +5,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../backend/audio/index.dart';
-import '../backend/models/index.dart';
+import './index.dart';
+import '../models/index.dart';
+import 'audio_providers.dart';
+
 
 // ==================== EJEMPLO 1: Widget de Reproductor Simple ====================
 
@@ -271,10 +273,10 @@ Future<void> showAddTrackDialog(BuildContext context) {
         ElevatedButton(
           onPressed: () async {
             await context.read<MusicProjectNotifier>().addTrack(
-              name: nameController.text,
-              instrumentType: instrumentController.text,
-              color: selectedColor,
-            );
+                  name: nameController.text,
+                  instrumentType: instrumentController.text,
+                  color: selectedColor,
+                );
             Navigator.pop(context);
           },
           child: Text('Agregar'),
@@ -298,12 +300,12 @@ class AudioUploadWidget extends StatelessWidget {
           stream: musicProject.uploadManager.uploadProgressSubject.stream,
           builder: (context, snapshot) {
             final progress = snapshot.data ?? UploadProgress(
-              state: UploadState.idle,
+              status: UploadStatus.idle,
             );
 
             return Column(
               children: [
-                if (progress.state == UploadState.idle)
+                if (progress.status == UploadStatus.idle)
                   ElevatedButton.icon(
                     icon: Icon(Icons.upload_file),
                     label: Text('Subir Audio'),
@@ -339,7 +341,7 @@ class AudioUploadWidget extends StatelessWidget {
                       }
                     },
                   ),
-                if (progress.state == UploadState.uploading)
+                if (progress.status == UploadStatus.uploading)
                   Column(
                     children: [
                       Text('Subiendo ${progress.fileName}...'),
@@ -351,10 +353,10 @@ class AudioUploadWidget extends StatelessWidget {
                       ),
                     ],
                   ),
-                if (progress.state == UploadState.completed)
+                if (progress.status == UploadStatus.completed)
                   Text('✓ Upload completado',
                       style: TextStyle(color: Colors.green)),
-                if (progress.state == UploadState.error)
+                if (progress.status == UploadStatus.error)
                   Text('✗ Error: ${progress.errorMessage}',
                       style: TextStyle(color: Colors.red)),
               ],

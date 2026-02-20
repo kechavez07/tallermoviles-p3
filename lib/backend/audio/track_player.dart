@@ -224,9 +224,9 @@ class TrackPlayer {
   }
 
   /// Establece la velocidad de reproducción
-  Future<void> setPlaybackRate(double rate) async {
+  Future<void> setSpeed(double rate) async {
     try {
-      await audioPlayer.setPlaybackRate(rate);
+      await audioPlayer.setSpeed(rate);
       final currentState = playbackStateSubject.value;
       playbackStateSubject.add(currentState.copyWith(playbackRate: rate));
     } catch (e) {

@@ -4,6 +4,7 @@ import 'package:estudio_musica_taller/offline/models/local_track.dart';
 import 'package:estudio_musica_taller/offline/models/sync_status.dart';
 import 'package:estudio_musica_taller/offline/cache/cache_manager.dart';
 import 'package:estudio_musica_taller/offline/sync/sync_service.dart';
+import 'package:estudio_musica_taller/offline/models/pending_sync_item.dart';
 import 'package:uuid/uuid.dart';
 
 /// API unificada para operaciones offline/online
@@ -305,6 +306,6 @@ class OfflineDataManager {
 
   /// Limpiar datos sincronizados antiguos
   Future<void> cleanupOldData({int daysOld = 30}) async {
-    await _db.cleanupSyncedData(daysOld: daysOld);
+    await _db.cleanupSyncedData(older: Duration(days: daysOld));
   }
 }

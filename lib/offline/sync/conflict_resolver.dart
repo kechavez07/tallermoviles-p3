@@ -1,6 +1,6 @@
-import 'package:estudio_musica_taller/offline/models/conflict_record.dart';
-import 'package:estudio_musica_taller/offline/models/local_project.dart';
-import 'package:estudio_musica_taller/offline/models/local_track.dart';
+import '../models/conflict_record.dart';
+import '../models/local_project.dart';
+import '../models/local_track.dart';
 import 'package:uuid/uuid.dart';
 
 /// Servicio para resolver conflictos de sincronización
@@ -116,7 +116,7 @@ class ConflictResolver {
     Map<String, dynamic> remoteProjectData,
     ConflictResolutionStrategy strategy,
   ) {
-    final resolvedData = _applyStrategy(
+    final resolvedData = applyStrategy(
       localProject.toMap(),
       remoteProjectData,
       strategy,
@@ -142,7 +142,7 @@ class ConflictResolver {
     Map<String, dynamic> remoteTrackData,
     ConflictResolutionStrategy strategy,
   ) {
-    final resolvedData = _applyStrategy(
+    final resolvedData = applyStrategy(
       localTrack.toMap(),
       remoteTrackData,
       strategy,
@@ -168,7 +168,7 @@ class ConflictResolver {
   }
 
   /// Aplicar estrategia de resolución
-  static Map<String, dynamic> _applyStrategy(
+  static Map<String, dynamic> applyStrategy(
     Map<String, dynamic> localData,
     Map<String, dynamic> remoteData,
     ConflictResolutionStrategy strategy,

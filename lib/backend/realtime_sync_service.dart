@@ -9,7 +9,7 @@ class RealtimeSyncService {
   final _firestore = FirebaseFirestore.instance;
   final _projectUpdates = BehaviorSubject<Map<String, dynamic>>();
   final _collaborators = BehaviorSubject<List<Map<String, dynamic>>>();
-  final _syncStatus = BehaviorSubject<bool>(initialValue: false);
+  final _syncStatus = BehaviorSubject<bool>.seeded(false);
 
   StreamSubscription? _projectListener;
   StreamSubscription? _collaboratorListener;

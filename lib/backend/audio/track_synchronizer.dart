@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 import 'audio_engine.dart';
+import 'track_player.dart';
 
 /// Sincronizador de pistas para mantener todas reproduciéndose al mismo tiempo
 class TrackSynchronizer {
@@ -162,6 +163,3 @@ class TrackSynchronizer {
     isOutOfSyncSubject.close();
   }
 }
-
-// Necesitamos importar TrackPlayer para el type checking
-import 'track_player.dart';

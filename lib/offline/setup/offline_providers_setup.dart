@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:estudio_musica_taller/offline/index.dart';
 
 /// Configuración centralizada de Providers para el sistema offline
 class OfflineProvidersSetup {
   /// Obtener lista de providers para MultiProvider
-  static List<ChangeNotifierProvider> getProviders() => [
+  static List<SingleChildWidget> getProviders() => [
     // 1️⃣ ConnectivityManager - Monitorea cambios de red
     ChangeNotifierProvider(
       create: (_) => ConnectivityManager(),
@@ -54,44 +55,3 @@ class OfflineProvidersSetup {
     debugPrint('[OfflineSetup] Recursos liberados');
   }
 }
-
-/// Usar en main.dart de la siguiente forma:
-/// 
-/// ```dart
-/// import 'package:estudio_musica_taller/offline/setup/offline_providers_setup.dart';
-/// 
-/// void main() async {
-///   WidgetsFlutterBinding.ensureInitialized();
-///   
-///   // Inicializar Firebase
-///   await Firebase.initializeApp(
-///     options: DefaultFirebaseOptions.currentPlatform,
-///   );
-///   
-///   // Inicializar servicios offline
-///   await OfflineProvidersSetup.setupServicesManually();
-///   
-///   runApp(
-///     MultiProvider(
-///       providers: OfflineProvidersSetup.getProviders(),
-///       child: const MyApp(),
-///     ),
-///   );
-/// }
-/// 
-/// // En cada pantalla:
-/// class MyPage extends StatelessWidget {
-///   @override
-///   Widget build(BuildContext context) {
-///     final connectivity = context.watch<ConnectivityManager>();
-///     final syncService = context.watch<SyncService>();
-///     final cache = context.watch<CacheManager>();
-///     
-///     return Scaffold(
-///       appBar: AppBar(
-///         title: Text('Modo: ${connectivity.isOnline ? "Online" : "Offline"}'),
-///       ),
-///     );
-///   }
-/// }
-/// ```

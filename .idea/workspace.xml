@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6a9a7dc-aada-414a-945b-d187eb907371" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/dart_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/dart_plugin_registrant.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_graph.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/fa875cea96ff9eb23bebfb51f104f901.cache.dill.track.dill" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/NOTICES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/shaders/ink_sparkle.frag" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/shaders/ink_sparkle.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/shaders/stretch_effect.frag" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/auth/auth_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth/auth_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/auth/firebase_auth/firebase_auth_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth/firebase_auth/firebase_auth_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/auth/firebase_auth/firebase_user_provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/auth/firebase_auth/firebase_user_provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/authentication/artist_selection/artist_selection_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/authentication/artist_selection/artist_selection_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/authentication/login/login_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/authentication/login/login_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/authentication/sign_up/sign_up_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/authentication/sign_up/sign_up_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/INTEGRATION_GUIDE.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/INTEGRATION_GUIDE.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/MIXER_REACTIVE_BINDING.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/MIXER_REACTIVE_BINDING.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/PRACTICAL_EXAMPLES.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/PRACTICAL_EXAMPLES.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/audio_engine.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/audio_engine.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/audio_mixer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/audio_mixer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/audio_mixer_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/audio_mixer_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/audio_providers.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/audio_providers.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/audio_service_handler.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/audio_service_handler.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/project_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/project_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/track_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/track_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/audio/track_synchronizer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/audio/track_synchronizer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/backend.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/backend.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/chat_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/chat_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/favorite_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/favorite_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/firestore_optimizations.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/firestore_optimizations.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/notification_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/notification_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/project_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/project_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/realtime_sync_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/realtime_sync_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/schema/favorite_record.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/schema/favorite_record.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/schema/settings_record.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/schema/settings_record.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/schema/track_record.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/schema/track_record.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/schema/user_record.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/schema/user_record.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/settings_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/settings_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/stream_cleanup_mixin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/stream_cleanup_mixin.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/track_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/track_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/backend/widget_examples.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/backend/widget_examples.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/components/musical_studio_example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/components/musical_studio_example.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_flow/nav/serialization_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_flow/nav/serialization_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main/chat_page/chat_page_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main/chat_page/chat_page_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main/discover/discover_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main/discover/discover_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main/mixer/mixer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main/mixer/mixer_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main/settings/settings_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main/settings/settings_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/offline/api/offline_data_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/offline/api/offline_data_manager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/offline/examples/offline_projects_example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/offline/examples/offline_projects_example.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/offline/setup/offline_providers_setup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/offline/setup/offline_providers_setup.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/offline/sync/conflict_resolver.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/offline/sync/conflict_resolver.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/offline/sync/sync_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/offline/sync/sync_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/offline_tests.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/offline_tests.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
@@ -13,24 +90,69 @@
       </file>
     </leaf>
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CarlosCampoverde&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/kechavez07/tallermoviles-p3.git&quot;,
+    &quot;accountId&quot;: &quot;805854a4-3ccc-4d98-a7ea-542c39a9cd7f&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="39ubzNiDVodcupMDu5VhXyujm5o" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
+    <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
       <pane id="ProjectPane">
         <option name="show-excluded-files" value="false" />
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="show.migrate.to.gradle.popup" value="false" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Flutter.main.dart.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "flutterflow",
+    "io.flutter.project.isFirstOpen": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/carlo/OneDrive/Desktop/tallermoviles-p3",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6a9a7dc-aada-414a-945b-d187eb907371" name="Changes" comment="" />
+      <created>1771549164965</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771549164965</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+    </layout>
   </component>
 </project>

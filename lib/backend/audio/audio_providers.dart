@@ -1,4 +1,4 @@
-import 'package:audio_service/audio_service.dart';
+import 'package:audio_service/audio_service.dart' as as;
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import '../models/index.dart';
@@ -37,28 +37,6 @@ class AudioEngineProvider {
 
 /// Proveedor de servicios de audio usando Provider
 /// Este es el punto centralizado para acceder a toda la funcionalidad de audio
-
-/// Provider del AudioEngine usando singleton - FIX 1.2
-final audioEngineProvider = Provider<AudioEngine>((ref) {
-  return AudioEngineProvider.instance;
-});
-
-/// ProjectPlayer provider
-final projectPlayerProvider = Provider<ProjectPlayer>((ref) {
-  final engine = ref.watch(audioEngineProvider);
-  return ProjectPlayer(audioEngine: engine);
-});
-
-/// AudioMixer provider
-final audioMixerProvider = Provider<AudioMixer>((ref) {
-  final engine = ref.watch(audioEngineProvider);
-  return AudioMixer(audioEngine: engine);
-});
-
-/// AudioUploadManager provider
-final audioUploadManagerProvider = Provider<AudioUploadManager>((ref) {
-  return AudioUploadProvider.instance;
-});
 
 /// Notifier para estado del proyecto de música
 class MusicProjectNotifier extends ChangeNotifier {
@@ -218,61 +196,79 @@ class MusicProjectNotifier extends ChangeNotifier {
   }
 }
 
-/// Provider ChangeNotifier para el proyecto
-final musicProjectProvider = ChangeNotifierProvider<MusicProjectNotifier>((ref) {
-  final audioEngine = ref.watch(audioEngineProvider);
-  final mixer = ref.watch(audioMixerProvider);
-  final player = ref.watch(projectPlayerProvider);
-  final uploadManager = ref.watch(audioUploadManagerProvider);
+/// Helper class to provide all audio related providers
+class AudioProviders {
+  static List<Provider> getBasicProviders() => [
+    Provider<AudioEngine>(create: (_) => AudioEngineProvider.instance),
+    ProxyProvider<AudioEngine, ProjectPlayer>(
+      update: (_, engine, __) => ProjectPlayer(audioEngine: engine),
+    ),
+    ProxyProvider<AudioEngine, AudioMixer>(
+      update: (_, engine, __) => AudioMixer(audioEngine: engine),
+    ),
+    Provider<AudioUploadManager>(create: (_) => AudioUploadProvider.instance),
+  ];
 
-  final initialProject = MusicProject(
-    name: 'Mi Proyecto de Música',
-    projectType: ProjectType.loopMixer,
-    bpm: 120.0,
-    userId: '', // Se obtendría del usuario autenticado
-  );
-
-  return MusicProjectNotifier(
-    initialProject: initialProject,
-    audioEngine: audioEngine,
-    mixer: mixer,
-    player: player,
-    uploadManager: uploadManager,
-  );
-});
-
-// Providers específicos de estado que los widgets pueden observar
-final projectBPMProvider = StreamProvider<double>((ref) async* {
-  final notifier = ref.watch(musicProjectProvider);
-  yield notifier.project.bpm;
-});
-
-final masterVolumeProvider = StreamProvider<double>((ref) async* {
-  final notifier = ref.watch(musicProjectProvider);
-  yield notifier.player.audioEngine.masterVolume;
-});
-
-final playbackStateProvider = StreamProvider<PlaybackState>((ref) {
-  final notifier = ref.watch(musicProjectProvider);
-  return notifier.player.playbackStateSubject.stream;
-});
-
-final isPlayingProvider = StreamProvider<bool>((ref) {
-  final notifier = ref.watch(musicProjectProvider);
-  return notifier.player.isPlayingSubject.stream;
-});
-
-final currentPositionProvider = StreamProvider<Duration>((ref) {
-  final notifier = ref.watch(musicProjectProvider);
-  return notifier.player.currentPositionSubject.stream;
-});
-
-final projectDurationProvider = StreamProvider<Duration>((ref) {
-  final notifier = ref.watch(musicProjectProvider);
-  return notifier.player.projectDurationSubject.stream;
-});
-
-final uploadProgressProvider = StreamProvider<UploadProgress>((ref) {
-  final uploadManager = ref.watch(audioUploadManagerProvider);
-  return uploadManager.uploadProgressSubject.stream;
-});
+  static List<dynamic> getAllProviders() => [
+    ...getBasicProviders(),
+    ChangeNotifierProxyProvider4<AudioEngine, AudioMixer, ProjectPlayer, AudioUploadManager, MusicProjectNotifier>(
+      create: (context) => MusicProjectNotifier(
+        initialProject: MusicProject(
+          name: 'Mi Proyecto de Música',
+          projectType: ProjectType.loopMixer,
+          bpm: 120.0,
+          userId: '',
+        ),
+        audioEngine: context.read<AudioEngine>(),
+        mixer: context.read<AudioMixer>(),
+        player: context.read<ProjectPlayer>(),
+        uploadManager: context.read<AudioUploadManager>(),
+      ),
+      update: (context, engine, mixer, player, uploadManager, previous) =>
+        previous ?? MusicProjectNotifier(
+          initialProject: MusicProject(
+            name: 'Mi Proyecto de Música',
+            projectType: ProjectType.loopMixer,
+            bpm: 120.0,
+            userId: '',
+          ),
+          audioEngine: engine,
+          mixer: mixer,
+          player: player,
+          uploadManager: uploadManager,
+        ),
+    ),
+    // State providers
+    StreamProvider<double>(
+      create: (context) => context.read<MusicProjectNotifier>().projectStateSubject.map((p) => p.bpm),
+      initialData: 120.0,
+    ),
+    StreamProvider<double>(
+      create: (context) => context.read<MusicProjectNotifier>().projectStateSubject.map((p) => p.masterVolume),
+      initialData: 1.0,
+    ),
+    StreamProvider<PlaybackState>(
+      create: (context) => context.read<MusicProjectNotifier>().player.playbackStateSubject.stream,
+      initialData: const PlaybackState(),
+    ),
+    StreamProvider<bool>(
+      create: (context) => context.read<MusicProjectNotifier>().player.isPlayingSubject.stream,
+      initialData: false,
+    ),
+    StreamProvider<Duration>(
+      create: (context) => context.read<MusicProjectNotifier>().player.currentPositionSubject.stream,
+      initialData: Duration.zero,
+    ),
+    StreamProvider<Duration>(
+      create: (context) => context.read<MusicProjectNotifier>().player.projectDurationSubject.stream,
+      initialData: Duration.zero,
+    ),
+    StreamProvider<UploadProgress>(
+      create: (context) => context.read<AudioUploadManager>().uploadProgressSubject.stream,
+      initialData: UploadProgress(
+        status: UploadStatus.idle,
+        progress: 0.0,
+      ),
+    ),
+  ];
+}

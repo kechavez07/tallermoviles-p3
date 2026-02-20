@@ -4,9 +4,8 @@
 /// con los servicios de audio backend.
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../backend/audio/index.dart';
-import '../backend/models/index.dart';
+import '../models/index.dart';
+import 'audio_providers.dart';
 
 /// [PASO 1] Actualizar MixerModel para usar los servicios de audio
 /// 
@@ -381,63 +380,3 @@ class MasterControlsWidget extends StatelessWidget {
     );
   }
 }
-
-/// EJEMPLO DE USO EN UN WIDGET COMPLETO
-/// 
-/// ```dart
-/// class IntegratedMixerWidget extends StatefulWidget {
-///   @override
-///   State<IntegratedMixerWidget> createState() => _IntegratedMixerWidgetState();
-/// }
-/// 
-/// class _IntegratedMixerWidgetState extends State<IntegratedMixerWidget> {
-///   @override
-///   Widget build(BuildContext context) {
-///     return Consumer<MusicProjectNotifier>(
-///       builder: (context, musicProject, _) {
-///         return Scaffold(
-///           appBar: AppBar(
-///             title: Text(musicProject.project.name),
-///             backgroundColor: Color(0xFF1A1A2E),
-///           ),
-///           body: Stack(
-///             children: [
-///               // Lista de pistas
-///               ListView.builder(
-///                 itemCount: musicProject.project.tracks.length,
-///                 padding: EdgeInsets.only(bottom: 200.0),
-///                 itemBuilder: (context, index) {
-///                   final track = musicProject.project.tracks[index];
-///                   return TrackControlWidget(
-///                     track: track,
-///                     musicProject: musicProject,
-///                     onRemove: () {
-///                       musicProject.removeTrack(track.id);
-///                     },
-///                   );
-///                 },
-///               ),
-///               
-///               // Controles maestros al fondo
-///               Positioned(
-///                 bottom: 0,
-///                 left: 0,
-///                 right: 0,
-///                 child: MasterControlsWidget(
-///                   musicProject: musicProject,
-///                   onPlayPressed: () => musicProject.play(),
-///                   onPausePressed: () => musicProject.pause(),
-///                   onStopPressed: () => musicProject.stop(),
-///                 ),
-///               ),
-///             ],
-///           ),
-///         );
-///       },
-///     );
-///   }
-/// }
-/// ```
-
-// Estos comentarios sirven como guía de integración
-// Los componentes anteriores pueden ser copiados directamente al proyecto

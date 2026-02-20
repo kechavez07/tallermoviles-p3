@@ -5,8 +5,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../audio/index.dart';
+import './index.dart';
 import '../models/index.dart';
+import 'audio_providers.dart';
+import 'audio_mixer.dart';
 
 // ==================== MIXER TRACK SLIDER REACTIVO ====================
 
@@ -51,7 +53,7 @@ class ReactiveMixerSlider extends StatelessWidget {
                   onChanged: (value) {
                     musicProject.mixer.setTrackVolume(trackId, value);
                   },
-                  overlayColor: MaterialStateProperty.all(color.withOpacity(0.5)),
+                  overlayColor: WidgetStateProperty.all(color.withOpacity(0.5)),
                   activeColor: color,
                   min: 0,
                   max: 1,
@@ -131,10 +133,9 @@ class ReactiveSoloButton extends StatelessWidget {
             final isSolo = solos[trackId] ?? false;
 
             return IconButton(
-              icon: Icon(
-                'S',
-                color: isSolo ? Colors.green : Colors.grey,
-              ),
+              icon: isSolo 
+                ? const Icon(Icons.headphones, color: Colors.green)
+                : const Icon(Icons.headphones_outlined, color: Colors.grey),
               onPressed: () {
                 musicProject.mixer.setTrackSolo(trackId, !isSolo);
               },
@@ -458,46 +459,3 @@ class MixerPageExample extends StatelessWidget {
     );
   }
 }
-
-// ==================== CÓMO USAR EN TU APP ====================
-
-/*
-// En tu widget:
-@override
-Widget build(BuildContext context) {
-  return Consumer<MusicProjectNotifier>(
-    builder: (context, musicProject, _) {
-      return Column(
-        children: [
-          // Usa cualquiera de estos componentes:
-          
-          // 1. Controles individuales
-          ReactiveMixerSlider(
-            trackId: track.id,
-            trackName: track.name,
-            color: Colors.blue,
-          ),
-          ReactiveMuteButton(trackId: track.id),
-          ReactiveSoloButton(trackId: track.id),
-          ReactivePanSlider(trackId: track.id),
-          
-          // 2. Control maestro
-          ReactiveMasterVolume(),
-          
-          // 3. Fila completa de track
-          MixerTrackControlRow(track: track),
-          
-          // 4. Mixer completo
-          ReactiveMixerPanel(),
-          
-          // 5. Indicador de estado
-          MixerStatusIndicator(),
-        ],
-      );
-    },
-  );
-}
-
-// El estado se actualiza automáticamente en tiempo real
-// gracias a los streams de trackVolumesSubject, trackMutesSubject, etc.
-*/

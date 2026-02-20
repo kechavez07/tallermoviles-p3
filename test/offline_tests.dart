@@ -241,7 +241,7 @@ void main() {
         final local = {'keep': 'local'};
         final remote = {'keep': 'remote'};
 
-        final resolved = ConflictResolver._applyStrategy(
+        final resolved = ConflictResolver.applyStrategy(
           local,
           remote,
           ConflictResolutionStrategy.keepLocal,
@@ -256,7 +256,7 @@ void main() {
         final local = {'keep': 'local'};
         final remote = {'keep': 'remote'};
 
-        final resolved = ConflictResolver._applyStrategy(
+        final resolved = ConflictResolver.applyStrategy(
           local,
           remote,
           ConflictResolutionStrategy.keepRemote,

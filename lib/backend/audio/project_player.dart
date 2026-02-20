@@ -207,7 +207,7 @@ class ProjectPlayer {
     for (final track in audioEngine.currentProject.tracks) {
       final player = audioEngine.getTrackPlayer(track.id);
       if (player != null) {
-        await player.setPlaybackRate(_playbackRate);
+        await player.setSpeed(_playbackRate);
       }
     }
 

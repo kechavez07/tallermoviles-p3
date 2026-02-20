@@ -487,7 +487,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                 safeSetState(
                                     () => _model.switchValue1 = newValue);
                               },
-                              activeColor: FlutterFlowTheme.of(context).primary,
                               activeTrackColor:
                                   FlutterFlowTheme.of(context).primary,
                               inactiveTrackColor:
@@ -617,8 +616,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   safeSetState(
                                       () => _model.switchValue2 = newValue);
                                 },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 activeTrackColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveTrackColor:
@@ -751,8 +748,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   safeSetState(
                                       () => _model.switchValue3 = newValue);
                                 },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 activeTrackColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveTrackColor:
@@ -885,8 +880,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   safeSetState(
                                       () => _model.switchValue4 = newValue);
                                 },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 activeTrackColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveTrackColor:
@@ -1180,8 +1173,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                   safeSetState(
                                       () => _model.switchValue5 = newValue);
                                 },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 activeTrackColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveTrackColor:
@@ -1301,7 +1292,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                               safeSetState(
                                   () => _model.switchValue6 = newValue);
                             },
-                            activeColor: FlutterFlowTheme.of(context).primary,
                             activeTrackColor:
                                 FlutterFlowTheme.of(context).primary,
                             inactiveTrackColor:
@@ -1433,8 +1423,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                     setDarkModeSetting(context, ThemeMode.dark);
                                   }
                                 },
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
                                 activeTrackColor:
                                     FlutterFlowTheme.of(context).primary,
                                 inactiveTrackColor:
